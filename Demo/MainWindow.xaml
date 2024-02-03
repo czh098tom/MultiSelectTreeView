@@ -201,7 +201,9 @@
 						</StackPanel>
 					</HierarchicalDataTemplate>
 				</Controls:MultiSelectTreeView.Resources>
-			</Controls:MultiSelectTreeView>
+
+                <TextBlock Text="1111111"/>
+            </Controls:MultiSelectTreeView>
 		</DockPanel>
 
 		<!--
@@ -335,6 +337,7 @@
 							Padding="4,0,2,0"/>
 					</HierarchicalDataTemplate>
 				</Controls:MultiSelectTreeView.Resources>
+
 			</Controls:MultiSelectTreeView>
 		</DockPanel>
 	</Grid>
