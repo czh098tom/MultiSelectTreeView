@@ -24,6 +24,11 @@ namespace Demo
 
 			// Create some example nodes to play with
 			var rootNode = new TreeItemViewModel(null, false) { DisplayName = "rootNode" };
+
+			// Use the root node as the window's DataContext to allow data binding. The TreeView
+			// will use the Children property of the DataContext as list of root tree items. This
+			// property happens to be the same as each item DataTemplate uses to find its subitems.
+			DataContext = rootNode;
 			var node1 = new TreeItemViewModel(rootNode, false) { DisplayName = "element1 (editable)", IsEditable = true };
 			var node2 = new TreeItemViewModel(rootNode, false) { DisplayName = "element2" };
 			var node11 = new TreeItemViewModel(node1, false) { DisplayName = "element11", Remarks = "Look at me!" };
@@ -50,11 +55,6 @@ namespace Demo
 			node14.Children.Add(colorNode2);
 			node14.Children.Add(colorNode3);
 			node1.Children.Add(node15);
-
-			// Use the root node as the window's DataContext to allow data binding. The TreeView
-			// will use the Children property of the DataContext as list of root tree items. This
-			// property happens to be the same as each item DataTemplate uses to find its subitems.
-			DataContext = rootNode;
 
 			// Preset some node states
 			node1.IsSelected = true;
@@ -128,7 +128,7 @@ namespace Demo
 		{
 			foreach (TreeItemViewModel node in TheTreeView.SelectedItems.OfType<TreeItemViewModel>().ToArray())
 			{
-				node.IsVisible = false;
+				node.ShouldBeVisible = false;
 			}
 		}
 
@@ -142,7 +142,7 @@ namespace Demo
 
 		private void DoShowAll(TreeItemViewModel node, Func<TreeItemViewModel, bool> selector)
 		{
-			node.IsVisible = selector(node);
+			node.ShouldBeVisible = selector(node);
 			if (node.Children != null)
 			{
 				foreach (var child in node.Children)

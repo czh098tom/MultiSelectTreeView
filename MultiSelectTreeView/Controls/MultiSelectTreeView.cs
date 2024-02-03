@@ -395,7 +395,7 @@ namespace System.Windows.Controls
 			int indexOfCurrent = item != null ? items.IndexOf(item) : -1;
 			for (int i = indexOfCurrent + 1; i < items.Count; i++)
 			{
-				if (items[i].IsVisible)
+				if (items[i].ShouldBeVisible)
 				{
 					return items[i];
 				}
@@ -408,7 +408,7 @@ namespace System.Windows.Controls
 			int indexOfCurrent = item != null ? items.IndexOf(item) : -1;
 			for (int i = indexOfCurrent - 1; i >= 0; i--)
 			{
-				if (items[i].IsVisible)
+				if (items[i].ShouldBeVisible)
 				{
 					return items[i];
 				}
@@ -420,7 +420,7 @@ namespace System.Windows.Controls
 		{
 			for (int i = 0; i < items.Count; i++)
 			{
-				if (items[i].IsVisible)
+				if (items[i].ShouldBeVisible)
 				{
 					return items[i];
 				}
@@ -432,7 +432,7 @@ namespace System.Windows.Controls
 		{
 			for (int i = items.Count - 1; i >= 0; i--)
 			{
-				if (items[i].IsVisible)
+				if (items[i].ShouldBeVisible)
 				{
 					return items[i];
 				}
@@ -518,7 +518,7 @@ namespace System.Windows.Controls
 					// Container was not generated, therefore it is probably not visible, so we can ignore it.
 					continue;
 				}
-				if (!includeInvisible && !tve.IsVisible)
+				if (!includeInvisible && !tve.ShouldBeVisible)
 				{
 					continue;
 				}
@@ -567,7 +567,7 @@ namespace System.Windows.Controls
 			{
 				for (int i = firstIndex; i <= lastIndex; i++)
 				{
-					if (allNodes[i].IsVisible)
+					if (allNodes[i].ShouldBeVisible)
 					{
 						nodesToSelect.Add(allNodes[i]);
 					}
@@ -577,7 +577,7 @@ namespace System.Windows.Controls
 			{
 				for (int i = firstIndex; i >= lastIndex; i--)
 				{
-					if (allNodes[i].IsVisible)
+					if (allNodes[i].ShouldBeVisible)
 					{
 						nodesToSelect.Add(allNodes[i]);
 					}

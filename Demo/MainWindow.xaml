@@ -114,7 +114,7 @@
 						<Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
 						<Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
 						<Setter Property="IsEnabled" Value="{Binding IsEnabled, Mode=TwoWay}"/>
-						<Setter Property="IsVisible" Value="{Binding IsVisible, Mode=TwoWay}"/>
+                        <Setter Property="ShouldBeVisible" Value="{Binding ShouldBeVisible, Mode=TwoWay}"/>
 						<Setter Property="IsEditable" Value="{Binding IsEditable, Mode=TwoWay}"/>
 						<Setter Property="IsEditing" Value="{Binding IsEditing, Mode=TwoWay}"/>
 						<Setter Property="Remarks" Value="{Binding Remarks, Mode=TwoWay}"/>
@@ -175,34 +175,33 @@
 					</Style>
 				</Controls:MultiSelectTreeView.ItemContainerStyle>
 
-				<Controls:MultiSelectTreeView.Resources>
-					<!--
+                <Controls:MultiSelectTreeView.Resources>
+                    <!--
 					Here the general item appearance is defined, for the ViewModel.TreeItemViewModel type
 					-->
-					<HierarchicalDataTemplate DataType="{x:Type vm:TreeItemViewModel}" ItemsSource="{Binding Children}">
-						<StackPanel Orientation="Horizontal">
-							<Border Background="YellowGreen" CornerRadius="3" Width="16" Height="16" SnapsToDevicePixels="True"/>
-							<TextBlock Text="{Binding DisplayName}" VerticalAlignment="Center" Padding="4,0,2,0"/>
-						</StackPanel>
-					</HierarchicalDataTemplate>
+                    <HierarchicalDataTemplate DataType="{x:Type vm:TreeItemViewModel}" ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <Border Background="YellowGreen" CornerRadius="3" Width="16" Height="16" SnapsToDevicePixels="True"/>
+                            <TextBlock Text="{Binding DisplayName}" VerticalAlignment="Center" Padding="4,0,2,0"/>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
 
-					<!--
+                    <!--
 					This is another item appearance for the ViewModel.ColorItemViewModel type
 					-->
-					<HierarchicalDataTemplate DataType="{x:Type vm:ColorItemViewModel}" ItemsSource="{Binding Children}">
-						<StackPanel Orientation="Horizontal">
-							<TextBlock Text="Colour:" Margin="1,0,0,0"/>
-							<TextBlock
+                    <HierarchicalDataTemplate DataType="{x:Type vm:ColorItemViewModel}" ItemsSource="{Binding Children}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Colour:" Margin="1,0,0,0"/>
+                            <TextBlock
 								Text="{Binding DisplayName}"
 								Background="{Binding BackgroundBrush}"
 								Foreground="{Binding ForegroundBrush}"
 								Padding="3,0"
 								Margin="6,0,0,0"/>
-						</StackPanel>
-					</HierarchicalDataTemplate>
-				</Controls:MultiSelectTreeView.Resources>
-
-                <TextBlock Text="1111111"/>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </Controls:MultiSelectTreeView.Resources>
+                
             </Controls:MultiSelectTreeView>
 		</DockPanel>
 
@@ -309,7 +308,7 @@
 						<Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
 						<Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
 						<Setter Property="IsEnabled" Value="{Binding IsEnabled, Mode=TwoWay}"/>
-						<Setter Property="IsVisible" Value="{Binding IsVisible, Mode=TwoWay}"/>
+                        <Setter Property="ShouldBeVisible" Value="{Binding ShouldBeVisible, Mode=TwoWay}"/>
 						<Setter Property="IsEditable" Value="{Binding IsEditable, Mode=TwoWay}"/>
 						<!-- Don't bind IsEditing because this would lead to two TreeViews editing the item... -->
 					</Style>

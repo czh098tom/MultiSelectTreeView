@@ -23,7 +23,7 @@ namespace Demo.ViewModel
 		private bool isEditable;
 		private bool isEditing;
 		private bool isEnabled = true;
-		private bool isVisible = true;
+		private bool shouldBeVisible = true;
 		private string remarks;
 
 		#endregion Data
@@ -161,15 +161,15 @@ namespace Demo.ViewModel
 			}
 		}
 
-		public bool IsVisible
+		public bool ShouldBeVisible
 		{
-			get { return isVisible; }
+			get { return shouldBeVisible; }
 			set
 			{
-				if (value != isVisible)
+				if (value != shouldBeVisible)
 				{
-					isVisible = value;
-					OnPropertyChanged("IsVisible");
+					shouldBeVisible = value;
+					OnPropertyChanged("ShouldBeVisible");
 				}
 			}
 		}

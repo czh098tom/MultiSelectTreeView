@@ -168,7 +168,7 @@
 					<ControlTemplate.Triggers>
 
 						<!-- Set the visibility of the item -->
-						<Trigger Property="IsVisible" Value="False">
+                        <Trigger Property="ShouldBeVisible" Value="False">
 							<Setter Property="FrameworkElement.Visibility" Value="Collapsed"/>
 						</Trigger>
 

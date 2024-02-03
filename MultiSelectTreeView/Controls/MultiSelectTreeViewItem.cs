@@ -95,8 +95,8 @@ namespace System.Windows.Controls
 			typeof(MultiSelectTreeViewItem),
 			new FrameworkPropertyMetadata(true));
 
-		public static new DependencyProperty IsVisibleProperty = DependencyProperty.Register(
-			"IsVisible",
+		public static DependencyProperty ShouldBeVisibleProperty = DependencyProperty.Register(
+            "ShouldBeVisible",
 			typeof(bool),
 			typeof(MultiSelectTreeViewItem),
 			new FrameworkPropertyMetadata(true));
@@ -262,10 +262,10 @@ namespace System.Windows.Controls
 			set { SetValue(IsEditableProperty, value); }
 		}
 
-		public new bool IsVisible
+		public bool ShouldBeVisible
 		{
-			get { return (bool) GetValue(IsVisibleProperty); }
-			set { SetValue(IsVisibleProperty, value); }
+			get { return (bool) GetValue(ShouldBeVisibleProperty); }
+			set { SetValue(ShouldBeVisibleProperty, value); }
 		}
 
 		public bool IsEditing
@@ -456,7 +456,7 @@ namespace System.Windows.Controls
 				}
 			}
 
-			if (e.Property.Name == "IsVisible")
+			if (e.Property.Name == "ShouldBeVisible")
 			{
 				// Deselect invisible item and its children
 				// (If one resists, don't hide)
@@ -464,7 +464,7 @@ namespace System.Windows.Controls
 				{
 					if (!ParentTreeView.DeselectRecursive(this, true))
 					{
-						IsVisible = true;
+						ShouldBeVisible = true;
 					}
 				}
 			}
